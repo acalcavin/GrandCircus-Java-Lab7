@@ -4,17 +4,11 @@ import java.util.Scanner;
 /*
  * Andrew Calabro-Cavin
  * Program that will recognize invalid inputs when the user requests information about students in a class
+ * Incorporate IndexOutOfBoundsException
  * 
  */
 
 public class RecognizeInvalidInputsStudents {
-
-	/*
-	 * public static void main(String[] args) { Scanner scan = new
-	 * Scanner(System.in);
-	 * 
-	 * }
-	 */
 
 	public static void main(String[] args) {
 
@@ -25,15 +19,6 @@ public class RecognizeInvalidInputsStudents {
 		String[] name = { "Black Francis", "Kim Deal", "Joey Santiago", "David Lovering" };
 		String[] instrument = { "guitar and sings", "bass and sings", "lead guitar", "drums" };
 		String[] hairStyle = { "no", "long", "short", "short" };
-
-		/*
-		for (int i = 0; i < studID.length; i++) { // Test
-			System.out.print(studID[i] + "\t"); // \t = tab character
-			System.out.print(name[i] + "\t");
-			System.out.print(instrument[i] + "\t");
-			System.out.println(hairStyle[i] + "\t");
-		}
-		*/
 
 		System.out.println("Welcome to the Pixies student database!");
 
@@ -58,7 +43,6 @@ public class RecognizeInvalidInputsStudents {
 				if (queryChoice2.equalsIgnoreCase(userQuery)) {
 					System.out.println(name[userNum - 1] + " has " + hairStyle[userNum - 1] + " hair.");
 				}
-				//System.out.println("Would you like to know more? (Enter yes or no");
 
 			} catch (InputMismatchException e) {
 
@@ -72,7 +56,7 @@ public class RecognizeInvalidInputsStudents {
 				//scan.nextLine(); // this will clear out the incorrect value entered into the scanner
 				continue;
 				
-			} catch (IllegalArgumentException c) {
+			} catch (IllegalArgumentException c) {  // FIXME: This is not working
 				System.out
 						.println("That data does not exist. Please try again. (Enter \"instrument\" or \"hairstyle\")");
 				scan.nextLine(); // this will clear out the incorrect value entered into the scanner
